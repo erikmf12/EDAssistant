@@ -1,0 +1,26 @@
+﻿<Window x:Class="EDAssistant.Dialogs.ApiKeyDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EDAssistant.Dialogs"
+        mc:Ignorable="d"
+        Title="Inara Api Key" 
+		WindowStyle="ToolWindow"
+		Height="100" 
+		Width="300">
+    <Grid>
+		<TextBox HorizontalAlignment="Stretch" 
+				 VerticalAlignment="Top"
+				 Margin="4"
+				 x:Name="box"
+				 MaxLines="1"
+				 Text="{Binding ApiKey, Mode=TwoWay}"/>
+		<Button HorizontalAlignment="Right"
+				VerticalAlignment="Bottom"
+				Margin="4"
+				Content="Save"
+				Padding="4"
+				Click="Button_Click"/>
+	</Grid>
+</Window>
