@@ -64,6 +64,33 @@ namespace EDAssistant.ViewModels
 				Notify();
 			}
 		}
+		public string ShipName
+		{
+			get => _shipName;
+			set
+			{
+				_shipName = value;
+				Notify();
+			}
+		}
+		public string Ship
+		{
+			get => _ship;
+			set
+			{
+				_ship = value;
+				Notify();
+			}
+		}
+		public string Commander
+		{
+			get => _commander;
+			set
+			{
+				_commander = value;
+				Notify();
+			}
+		}
 		public int CurrentCredits
 		{
 			get => _currentCredits;
@@ -84,6 +111,7 @@ namespace EDAssistant.ViewModels
 			}
 		}
 		private Timer _timer;
+		private string _ship;
 
 		public MainWindowViewModel()
 		{
@@ -118,6 +146,7 @@ namespace EDAssistant.ViewModels
 		{
 			_appStarting = false;
 			InaraUpdater.UpdateLocationAsync(Properties.Settings.Default.ApiKey, CurrentSystem, CurrentStation, _shipName, _shipId).Wait();
+			_timer.Dispose();
 		}
 
 
@@ -137,8 +166,9 @@ namespace EDAssistant.ViewModels
 				case EventType.LoadGame:
 					var log = (e as LoadGameLogEvent);
 					_shipId = log.ShipID;
-					_shipName = log.ShipName;
-					_commander = log.Commander;
+					ShipName = string.IsNullOrEmpty(log.ShipName) ? null : $"({log.ShipName})";
+					Ship = log.Ship;
+					Commander = log.Commander;
 					break;
 				case EventType.Location:
 					CurrentSystem = (e as LocationLogEvent).StarSystem;

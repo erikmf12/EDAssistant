@@ -113,6 +113,23 @@
 						VerticalAlignment="Center"
 						Click="TargetSystemButton_Click"/>
 			</StackPanel>
+
+			<StackPanel Orientation="Vertical"
+						HorizontalAlignment="Right"
+						Grid.Row="3">
+				<TextBlock VerticalAlignment="Center"
+						   FontWeight="Bold"
+						   HorizontalAlignment="Right"
+						   Text="{Binding Commander, Mode=OneWay}"/>
+				
+				<TextBlock VerticalAlignment="Center"
+						   FontWeight="Bold"
+						   HorizontalAlignment="Right">
+					<Run Text="{Binding Ship, Mode=OneWay}"/>
+					<Run Text="{Binding ShipName, Mode=OneWay}"/>
+				</TextBlock>
+			</StackPanel>
+
 		</Grid>
 		<Button Content="Clear"
 				Grid.Column="1"

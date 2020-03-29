@@ -46,10 +46,11 @@ namespace EDAssistant.Services
 
 				var content = JsonSerializer.Serialize(request);
 
-				var result = await client.PostAsync("inapi/v1/", new StringContent(content));
-				var resultContent = await result.Content.ReadAsStringAsync();
-				_lastRequest = DateTime.Now;
-				return result.IsSuccessStatusCode;
+				return false;
+				//var result = await client.PostAsync("inapi/v1/", new StringContent(content));
+				//var resultContent = await result.Content.ReadAsStringAsync();
+				//_lastRequest = DateTime.Now;
+				//return result.IsSuccessStatusCode;
 			}
 		}
 	}
